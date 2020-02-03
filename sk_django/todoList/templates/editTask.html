@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+
+
+                            {% if form.errors %}
+                                <p align="center">Error. Please try again!</p>
+                            {% endif %}
+    <h1> Edit Task: </h1>
+    <hr>
+
+    <form action="{% url 'editTask' id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.taskname.id_for_label }}"> {{ form.taskname.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.taskname.id_for_label }}" name="{{ form.taskname.name }}" value="{{ form.taskname.value }}">
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}"> {{ form.description.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.name }}" value="{{ form.description.value }}">
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.category.id_for_label }}"> {{ form.category.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.category.id_for_label }}" name="{{ form.category.name }}" value="{{ form.category.value }}">
+        </div>
+
+
+
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

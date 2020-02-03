@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+
+        <h1 align="center"> <span class="badge badge-danger"> {{task.taskname}}</h1>
+
+        <hr>
+
+        <h3 align="center">Taskname: <span class="badge badge-light">{{ task.taskname}}</span></h3>
+        <h3 align="center">Owner: <span class="badge badge-light">{{ task.user}}</span></h3>
+        <h3 align="center">Description: <span class="badge badge-light">{{ task.description}}</span></h3>
+        <h3 align="center">Category: <span class="badge badge-light">{{ task.category}}</span></h3>
+        <h3 align="center">Created at: <span class="badge badge-light">{{ task.created_at}}</span></h3>
+        <h3 align="center">Number of comments: <span class="badge badge-light">{{ comments}}</span></h3>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+
+                {% if form.errors %}
+                    <p align="center"> Error. Please try again!</p>
+                {% endif %}
+
+    <h1> Edit Comment: </h1>
+    <hr>
+
+    <form action="{% url 'editComment' id %}" method="post">
+    {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.content.id_for_label }}"> {{ form.content.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.name }}" value=" {{form.content.value}}">
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.views_count.id_for_label }}"> {{ form.views_count.label_tag }}</label>
+            <input type="text" class="form-control" id="{{ form.views_count.id_for_label }}" name="{{ form.views_count.name }}" value=" {{form.views_count.value}}">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
